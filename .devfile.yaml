@@ -30,3 +30,8 @@ commands:
       label: "4-run-navigator"
       component: tooling-container
       commandLine: ansible-navigator
+  - id: 5-test
+    exec:
+      label: "test"
+      component: tooling-container
+      commandLine: touch /tmp/test
