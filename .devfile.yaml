@@ -14,9 +14,19 @@ commands:
     exec:
       label: "1-install-ansible-navigator"
       component: tooling-container
-      commandLine: |
-        dnf install python3-pip
-        python3 -m pip install ansible-navigator --user
-        echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.profile
-        source ~/.profile
-        ansible-navigator
+      commandLine: python3 -m pip install ansible-navigator --user
+  - id: 2-set-profile
+    exec:
+      label: "2-set-profile"
+      component: tooling-container
+      commandLine: echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.profile
+  - id: 3-source-profile
+    exec:
+      label: "3-source-profile"
+      component: tooling-container
+      commandLine: source ~/.profile
+  - id: 4-run-navigator
+    exec:
+      label: "4-run-navigator"
+      component: tooling-container
+      commandLine: ansible-navigator
