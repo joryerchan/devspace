@@ -9,3 +9,14 @@ components:
       memoryLimit: 1536M
       cpuRequest: 100m
       cpuLimit: 1500m
+commands:
+  - id: 1-install-ansible-navigator
+    exec:
+      label: "1-install-ansible-navigator"
+      component: tooling-container
+      commandLine: |
+        dnf install python3-pip
+        python3 -m pip install ansible-navigator --user
+        echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.profile
+        source ~/.profile
+        ansible-navigator
