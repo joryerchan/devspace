@@ -35,3 +35,7 @@ commands:
       label: "test"
       component: tooling-container
       commandLine: touch /tmp/test
+  events:
+    postStart:
+     - "5-test"
+      
