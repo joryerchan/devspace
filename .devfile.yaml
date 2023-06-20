@@ -10,22 +10,22 @@ components:
       cpuRequest: 100m
       cpuLimit: 1500m
 commands:
-  - id: 1-install-ansible-navigator
+  - id: 1-test
     exec:
       label: "1-install-ansible-navigator"
       component: tooling-container
       commandLine: python3 -m pip install ansible-navigator --user
-  - id: 2-set-profile
+  - id: 2-test
     exec:
       label: "2-set-profile"
       component: tooling-container
       commandLine: echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.profile
-  - id: 3-source-profile
+  - id: 3-test
     exec:
       label: "3-source-profile"
       component: tooling-container
       commandLine: source ~/.profile
-  - id: 4-run-navigator
+  - id: 4-test
     exec:
       label: "4-run-navigator"
       component: tooling-container
@@ -37,5 +37,8 @@ commands:
       commandLine: touch /tmp/test
 events:
   postStart:
+    - "1-test"
+    - "2-test"
+    - "3-test"
+    - "4-test"
     - "5-test"
-      
